@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+venv/
+env/
+.venv/
+
+# Photos
+docs/gantry_banner.png
+
+# Data and configurations (Users should copy the .example files)
+actions.json
+
+# Logs
+logs/
+*.log
+
+# Docker 
+docker-compose.override.yml
+
+# Scripts (Ignore personal local test scripts, keep the repo clean)
+push_to_webserver.sh
+launch.bat
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/

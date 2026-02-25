@@ -1,0 +1,15 @@
+services:
+  gantry:
+    build: .
+    container_name: gantry
+    restart: unless-stopped
+    
+    env_file:
+      - .env
+
+    ports:
+      - "${GANTRY_PORT:-8787}:${GANTRY_PORT:-8787}"
+
+    volumes:
+      - ./actions.json:/app/actions.json:ro
+      - ./logs:/app/logs
