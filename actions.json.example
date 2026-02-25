@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "actions": {
+    "hello_world": {
+      "exe": "python",
+      "require_token": false,
+      "cwd": null,
+      "args":[
+        "-c", 
+        "print('Hello {{name}}! Your request came from {{ip}}.')"
+      ],
+      "timeout_seconds": 5,
+      "capture_output": true,
+      "rate_limit": {
+        "max_requests": 10,
+        "window_seconds": 60
+      }
+    },
+
+    "linux_discord_relay": {
+      "exe": "python",
+      "cwd": "/app/scripts",
+      "args":[
+        "discord_sender.py",
+        "--msg", "{{msg}}"
+      ],
+      "timeout_seconds": 10,
+      "capture_output": true
+    },
+
+    "windows_background_task": {
+      "exe": "C:\\path\\to\\pythonw.exe",
+      "cwd": "C:\\path\\to\\working\\directory",
+      "args":[
+        "tts_manager.py",
+        "--text", "{{text_raw}}",
+        "--b64", "{{attachment_b64}}"
+      ],
+      "timeout_seconds": 600,
+      "capture_output": true,
+      "background": true,
+      "decode_b64_params": ["attachment_b64"]
+    },
+
+    "windows_hidden_vbs": {
+      "exe": "C:\\Windows\\System32\\wscript.exe",
+      "cwd": "C:\\Scripts\\Automation",
+      "args": ["run_hidden.vbs"],
+      "timeout_seconds": 10,
+      "capture_output": false
+    },
+
+    "secure_sysinfo_stealth": {
+      "exe": "bash",
+      "require_token": "UPLINK_CUSTOM_KEY_123", 
+      "cwd": "/opt/scripts",
+      "args":[
+        "get_sysinfo.sh",
+        "--caller-ip", "{{ip}}"
+      ],
+      "timeout_seconds": 30,
+      "capture_output": true,
+      "background": false,
+      "stealth": true
+    }
+  }
+}

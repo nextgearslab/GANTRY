@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+venv/
+env/
+.venv/
+
+# Photos
+docs/gantry_banner.png
+
+# Data and configurations
+actions.json
+
+# Logs
+logs/
+*.log
+
+# Docker 
+docker-compose.override.yml
+
+# Scripts 
+push_to_webserver.sh
+launch.bat
+scripts/
+data/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
