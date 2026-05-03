@@ -8,12 +8,14 @@ __pycache__/
 venv/
 env/
 .venv/
+.env.docker
 
 # Photos
 docs/gantry_banner.png
 
 # Data and configurations
 actions.json
+actions.json.docker
 
 # Logs
 logs/

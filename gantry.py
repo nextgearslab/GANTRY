@@ -372,10 +372,9 @@ def run_action(action_name: str, body: RunBody, req: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed: {e}")
 
-    out = (p.stdout or "")[-8000:] if capture else ""
-    err = (p.stderr or "")[-8000:] if capture else ""
+    out = p.stdout or ""
+    err = p.stderr or ""
 
-    # Stealth Return Block
     if stealth:
         encoded_out = base64.b64encode(out.encode('utf-8')).decode('utf-8') if out else ""
         return {
@@ -387,8 +386,8 @@ def run_action(action_name: str, body: RunBody, req: Request):
         "ok": (p.returncode == 0),
         "action": action_name,
         "returncode": p.returncode,
-        "stdout_tail": out,
-        "stderr_tail": err,
+        "stdout": out, 
+        "stderr": err, 
         "cmd": cmd,
         "request_id": rid,
     }
